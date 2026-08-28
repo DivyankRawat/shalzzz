@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/*
+ * Site palette. Every screen draws from these five values: a black ground,
+ * charcoal for raised surfaces and the curtain, off-white for type, and
+ * soft pink as the only accent. The two standalone pages in `public/` restate them
+ * locally because they cannot import this file.
+ */
+:root {
+  --ink: #000000;
+  --ink-2: #0d0d0f;
+  --charcoal: #121212;
+  --paper: #f3efe7;
+  --muted: #8a8a90;
+  --accent: #ffb7ce;
+  --accent-soft: #ffd4e2;
+  --accent-deep: #f4809f;
+
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* The scroll-snap shell owns the only scrollbar; keep it out of sight so the
+   snap between full-bleed sections reads as a deliberate cut, not a scroll. */
+.snap-y::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.snap-y {
+  scrollbar-width: none;
+}
